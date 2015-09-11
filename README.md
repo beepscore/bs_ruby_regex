@@ -25,12 +25,7 @@ The app uses bundler to specify its dependency gem versions.
 ## To run tests
     $ cd <path>/bs_ruby_regex
 
-Note: Don't run
-
-    $ rake
-
-It will show warnings!
-
+Note: Don't run $ "rake". It will show warnings!  
 Instead run
 
     $ bundle exec rake
