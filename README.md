@@ -4,6 +4,9 @@ Describe how to install and use bs_ruby_regex.
 # References
 <http://bundler.io>
 
+bs_team_ranker
+<https://github.com/beepscore/bs_team_ranker.git>
+
 # Requirements
 Ruby 2.1
 bundler (~> 1.10)
