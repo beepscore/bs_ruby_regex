@@ -24,6 +24,6 @@ Gem::Specification.new do |spec|
 
   # Reference
   # http://guides.rubygems.org/specification-reference/
-  spec.required_ruby_version = '~> 2.1'
+  spec.required_ruby_version = '~> 2.1.3'
 
 end
