@@ -6,6 +6,31 @@ module BsRubyRegex
     def initialize
     end
 
+    # read a file and return an encoding
+    # param an_external_encoding. If nil use default external encoding
+    #
+    # |os      |  default_external encoding |
+    # |------- | -------------------------- |
+    # |macosx  |  UTF-8                     |
+    # |windows |  IBM437                    |
+    # You can see this from irb
+    # $ irb
+    # irb(main):001:0> Encoding.default_external
+    # => <Encoding:UTF-8>
+    # http://www.ruby-doc.org/core-2.0.0/IO.html#method-c-new
+    # http://www.ruby-doc.org/core-2.0.0/Encoding.html
+    #
+    def self.encoding_from_file(file_name, an_external_encoding)
+      file = nil
+      if (an_external_encoding.nil?)
+        # don't specify external encoding, just use default
+        file = File.open(file_name, 'r')
+      else
+        file = File.open(file_name, "r:#{an_external_encoding}")
+      end
+      file.external_encoding
+    end
+
     # read a file and return a string
     # param an_external_encoding. If nil use default external encoding
     #
@@ -52,17 +77,7 @@ module BsRubyRegex
       puts "Wrote to file #{to_file}"
     end
 
-    def self.encoding_from_file(file_name, an_external_encoding)
-      file = nil
-      if (an_external_encoding.nil?)
-        # don't specify external encoding, just use default
-        file = File.open(file_name, 'r')
-      else
-        file = File.open(file_name, "r:#{an_external_encoding}")
-      end
-      file.external_encoding
-    end
-
   end
+
 end
 
