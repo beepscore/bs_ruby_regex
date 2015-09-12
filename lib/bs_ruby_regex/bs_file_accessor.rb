@@ -3,9 +3,6 @@
 module BsRubyRegex
   class BsFileAccessor
 
-    attr_reader :file_encoding
-    attr_reader :file_name
-
     def initialize
     end
 
@@ -23,18 +20,17 @@ module BsRubyRegex
     # http://www.ruby-doc.org/core-2.0.0/IO.html#method-c-new
     # http://www.ruby-doc.org/core-2.0.0/Encoding.html
     #
-    def string_from_file(file_name, an_external_encoding)
-      @file_name = file_name
+    def self.string_from_file(file_name, an_external_encoding)
 
       file = nil
       if (an_external_encoding.nil?)
         # don't specify external encoding, just use default
-        file = File.open(@file_name, 'r')
+        file = File.open(file_name, 'r')
       else
-        file = File.open(@file_name, "r:#{an_external_encoding}")
+        file = File.open(file_name, "r:#{an_external_encoding}")
       end
 
-      @file_encoding = file.external_encoding
+      #file_encoding = file.external_encoding
 
       file_string = ""
       file.each_line do |line|
@@ -45,7 +41,7 @@ module BsRubyRegex
       file_string
     end
 
-    def write(a_string, to_file)
+    def self.write(a_string, to_file)
       # References
       # Learn Ruby the Hard Way ex20.rb
       # http://stackoverflow.com/questions/4795447/rubys-file-open-and-the-need-for-f-close
@@ -54,6 +50,17 @@ module BsRubyRegex
       output.write(a_string)
       output.close
       puts "Wrote to file #{to_file}"
+    end
+
+    def self.encoding_from_file(file_name, an_external_encoding)
+      file = nil
+      if (an_external_encoding.nil?)
+        # don't specify external encoding, just use default
+        file = File.open(file_name, 'r')
+      else
+        file = File.open(file_name, "r:#{an_external_encoding}")
+      end
+      file.external_encoding
     end
 
   end
