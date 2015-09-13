@@ -2,6 +2,20 @@
 Describe how to install and use bs_ruby_regex.
 
 # References
+
+## Ruby User's Guide regular expressions
+http://ruby-doc.org/docs/ruby-doc-bundle/UsersGuide/rg/regexp.html
+
+## Regexp
+http://ruby-doc.org/core-2.2.0/Regexp.html
+
+## Rubular online Ruby regular expression parser
+http://rubular.com
+
+## Ruby Regular expressions
+http://www.tutorialspoint.com/ruby/ruby_regular_expressions.htm
+
+## bundler
 <http://bundler.io>
 
 bs_team_ranker
